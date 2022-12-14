@@ -4,16 +4,17 @@ public class Node{
     private String sequence;
     private Integer value;
     private ArrayList<Node> children = new ArrayList<Node>();
+    public boolean has_Iterated = false;
 
     public Node(String sequence, Integer value){
         this.sequence = sequence;
         this.value = value;
     }
 
-    public Node(String sequence, Integer value, Node newNode) {
+    public Node(String sequence, Integer value, ArrayList<Node> newNode) {
         this.sequence = sequence;
         this.value = value;
-        children.add(newNode);
+        children = newNode;
     }
 
     public Integer getValue(){return value;}
@@ -35,5 +36,7 @@ public class Node{
     public boolean compareNode(String s1, Integer v1){
         return (sequence.equals(s1) && value==v1);
     }
+
+    public String toString(){return sequence+ " "+ Integer.toString(value);}
 
 } 
