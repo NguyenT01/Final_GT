@@ -113,9 +113,22 @@ public class Main {
 
         int minsup = 3;
 
+        long startTime = System.nanoTime();
+        long beforeUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
 
-
+        // START FUNCTION
         pDBV_FCSP(DBV, minsup);
+
+        long endTime = System.nanoTime();
+        long afterUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
+
+
+        double totalTime = (endTime - startTime)*1.00 / 1000 / 1000;
+        double actualMemUsed= (afterUsedMem-beforeUsedMem)*1.00 / 1024 /1024;
+
+        System.out.println("-------");
+        System.out.println("Run time: "+totalTime + " ms");
+        System.out.println("Mem used: "+actualMemUsed +" MB");
 
     }
 }
