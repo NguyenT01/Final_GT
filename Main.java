@@ -4,14 +4,7 @@ public class Main {
     
     // đếm số bit 1
     public static int countSetBit(Integer num){
-        int count = 0;
-        while(num >0){
-            if(num%2 == 1){
-                count ++;
-            }
-            num /=2;
-        }
-        return count;
+        return Integer.bitCount(num);
     }
 
     public static void pDBV_FCSP(Tuple[] DB, int minsup){
